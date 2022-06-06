@@ -1,0 +1,51 @@
+.header {
+    height: var(--desktop-header-height);
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    flex: 1 0 auto; /*không bị co lại*/
+}
+
+.header__searchbar {
+    position: relative;
+    height: 36px;
+    flex: 1 0 auto;
+}
+
+.header__searchbar-input {
+    width: 100%;
+}
+
+.header__searchbar-icon {
+    position: absolute;
+    top: 6px;
+    left: 10px;
+}
+
+.header__navbar {
+    flex: 1 0 auto;
+    /*white-space: nowrap;*/
+}
+
+
+.header__navbar-list {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
+.header__navbar-item-link {
+    text-decoration: none;
+    color: var(--black-color);
+    margin-left: 22px;
+}
+
+.header__navbar-item-icon {
+    font-size: 1.5rem;
+}
+
+.header__navbar-item-img {
+    width: 1.5rem;
+}

@@ -1,0 +1,44 @@
+/*SIDEBAR*/
+.sidebar {
+    /*Nếu dùng flex-grow (trong col cũng có), thì đặt min-width max-width sẽ giới hạn độ trải rộng*/
+    /*Đặt flex-shrink 9999 hoặc flex-grow 9999 là hack*/
+    max-width: 360px;
+    min-width: 280px;
+    margin-top: 16px;
+}
+
+.sidebar__list {
+    padding: 0 8px;
+}
+
+.sidebar__item {
+    height: 44px;
+    width: 100%;
+
+}
+
+.sidebar__item-link {
+    padding: 0 8px;
+    text-decoration-line: none;
+    color: #1c1e21;
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sidebar__item-link:hover {
+    background-color: rgb(200, 200, 200);
+    color: #1c1e21;
+    border-radius: 8px;
+}
+
+.sidebar__item-icon {
+    font-size: 1.25rem;
+    width: 36px;
+    border-radius: 50%;
+    margin-right: 6px;
+    color: #0062E0;
+}

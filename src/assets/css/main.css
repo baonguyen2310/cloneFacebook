@@ -1,0 +1,10 @@
+.main {
+    display: flex;
+    background-color: #f0f2f5;
+}
+
+/*COMPLEMENTARY*/
+.complementary {
+    max-width: 360px;
+    min-width: 280px;
+}

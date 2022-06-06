@@ -1,0 +1,83 @@
+.header {
+    height: var(--desktop-header-height);
+    width: 100%;
+    border-bottom: 1px solid var(--border-color-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+}
+
+.header__row {
+    width: 935px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    flex: 1 0 auto;
+}
+
+
+.header__searchbar {
+    flex: 1 0 auto; /*cách để shrink*/
+    min-width: 125px;
+
+
+    height: 36px;
+    display: flex; /*nếu có nhiều nút, dù đặt input 100% vẫn chừa chỗ cho nút*/
+    position: relative;
+}
+
+
+.header__searchbar-input {
+    background-color: var(--gray-color-2);
+    padding: 3px 16px;
+    border-radius: .5rem;
+    border: none;
+    width: 100%; /*Đối với input phải đặt width thì nó mới shrink*/
+}
+
+
+.header__searchbar-btn {
+    position: absolute;
+    top: 6px;
+    left: 10px;
+}
+
+
+.header__navbar {
+    flex: 1 0 auto;
+    white-space: nowrap;
+}
+
+.header__navbar-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header__navbar-item {
+}
+
+.header__navbar-item-link {
+    color: var(--black-color);
+    text-decoration: none;
+}
+
+.header__navbar-item-icon {
+    font-size: 1.5rem;
+    color: var(--gray-color);
+}
+
+.header__navbar-item-img {
+    width: 1.5rem;
+    border-radius: 50%;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 650px) {
+    .header__searchbar {
+        display: none;
+    }
+}

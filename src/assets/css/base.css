@@ -1,0 +1,28 @@
+:root {
+    --black-color: #000;
+    --white-color: #fff;
+    --gray-color: #767676;
+    --gray-color-2: #efefef;
+    --border-color-1: rgb(219, 219, 219);
+    --desktop-header-height: 60px;
+}
+
+body {
+    margin: 0;
+}
+
+ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+.container-fixed {
+    max-width: 100%;
+    padding: 0;
+}
+
+.row-fixed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
