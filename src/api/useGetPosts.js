@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+//Dùng hook của React thì chỉ được là react component (bắt đầu in hoa và có return element hoặc component) hoặc react custom hook (bắt đầu bằng use)
+//Tạo 1 custom hook nhận vào pageNumber, gọi api khi pageNumber thay đổi, trả về res và trạng thái
+
 const useGetPosts = (pageNumber) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -17,7 +20,8 @@ const useGetPosts = (pageNumber) => {
             url: "http://localhost:5000/posts",
             params: {
                 page: pageNumber
-            }
+            },
+            cancelToken: new axios.CancelToken(c => cancel = c)
         })
         .then((res) => {
             setPosts(prev => {
@@ -27,8 +31,13 @@ const useGetPosts = (pageNumber) => {
             setLoading(false);
         })
         .catch((err) => {
+            if (axios.isCancel(err)) return;
             setError(true);
         })
+        return (() => {
+            cancel();
+        })
+
     }, [pageNumber]);
 
     return { loading, error, posts, hasMore }

@@ -8,7 +8,7 @@ const Content = () => {
     const { loading, error, posts, hasMore } = useGetPosts(pageNumber);
 
     //Thay doi pageNumber
-    const observer = useRef();
+    const observer = useRef(); //observer tạo một lần
     
     const lastPostElementRef = useCallback((node) => {
         if (loading) return
@@ -20,6 +20,9 @@ const Content = () => {
         })
         if(node) observer.current.observe(node);
     }, [loading]);
+    //loading thay đổi từ true thành false nghĩa là đã có res => mới có lastpost
+    //lúc này useCallback tạo lại hàm, cho observer quan sát node(lastpost)
+    //mỗi khi viewport giao node, nếu hasMore = true thì setPageNumber => gọi lại api
 
 
 
