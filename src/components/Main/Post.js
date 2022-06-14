@@ -45,7 +45,7 @@ const Post = (props, ref) => {
             });
             event.target.value = "";
 
-            xhr.open("POST", "http://localhost:5000/comment", true);
+            xhr.open("POST", "https://18.142.227.93/comment", true);
             xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             xhr.send(body);
         }

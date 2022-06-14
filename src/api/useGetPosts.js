@@ -17,7 +17,7 @@ const useGetPosts = (pageNumber) => {
 
         axios({
             method: "GET",
-            url: "https://localhost:443/posts",
+            url: "https://18.142.227.93/posts",
             params: {
                 page: pageNumber
             },

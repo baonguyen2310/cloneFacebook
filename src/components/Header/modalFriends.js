@@ -7,7 +7,7 @@ const ModalFriends = () => {
     useEffect(() => {
         axios({
             method: "GET",
-            url: "https://localhost:443/friends",
+            url: "https://18.142.227.93/friends",
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
