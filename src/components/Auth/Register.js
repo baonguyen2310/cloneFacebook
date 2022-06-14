@@ -5,7 +5,7 @@ const Register = () => {
         const userName = document.querySelector(".register-form__username").value;
         const password = document.querySelector(".register-form__password").value;
         axios.post(
-            "https://localhost:443/register",
+            "https://18.142.227.93/register",
             {
                 userName: userName,
                 password: password
