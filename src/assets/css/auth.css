@@ -1,0 +1,67 @@
+.auth-form {
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    background-color: var(--white-color);
+    z-index: 1001;
+    width: 100%;
+    font-size: 1.5rem;
+    flex-direction: column;
+}
+
+.auth-form * {
+    font-size: inherit;
+    width: 100%;
+}
+
+.form-auth__register,
+.form-auth__login {
+    background-color: var(--primary-color-2);
+    color: var(--white-color);
+}
+
+.register-form {
+    width: 100%;
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    z-index: 1001;
+    flex-direction: column;
+}
+
+.register-form * {
+    font-size: 1.5rem;
+}
+
+.login-form {
+    width: 100%;
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    z-index: 1001;
+    flex-direction: column;
+}
+
+.login-form * {
+    font-size: 1.5rem;
+    display: inherit;
+}
+
+.login-form__username,
+.login-form__password,
+.login-form__btn,
+.register-form__username,
+.register-form__password,
+.register-form__password-confirm,
+.register-form__btn {
+    height: 2.5rem;
+}
+
+.login-form__btn,
+.register-form__btn {
+    background-color: var(--primary-color-2);
+    color: var(--white-color);
+} 

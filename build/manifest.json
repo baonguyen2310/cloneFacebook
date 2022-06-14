@@ -1,0 +1,16 @@
+{
+    "lang": "en-us",
+    "name": "Clone Facebook",
+    "short_name": "cloneFacebook",
+    "description": "clone facebook social network",
+    "start_url": "/",
+    "background_color": "#111111",
+    "theme_color": "#ffffff",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "facebook.ico",
+            "size": "512x512"
+        }
+    ]
+}

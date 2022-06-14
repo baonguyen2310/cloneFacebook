@@ -1,5 +1,44 @@
+/*BlurScreen*/
+.blur-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color:dimgray;
+    opacity: 0.6;
+    z-index: 1000;
+    display: none;
+}
+
+/*ButtonIconText*/
 .button-icon-text {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*AvatarInput*/
+.avatar-input {
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    background-color: var(--white-color);
+}
+.avatar-input__img {
+    width: 2.5rem;
+    border-radius: 50%;
+}
+.avatar-input__input {
+    border-radius: 16px;
+    padding: 8px 12px;
+    border: none;
+    background-color: rgb(240, 242, 245);
+    width: 90%;
+    height: 24px;
+    margin-left: 8px;
+}
+
+.avatar-input__input:focus {
+    outline: none;
 }

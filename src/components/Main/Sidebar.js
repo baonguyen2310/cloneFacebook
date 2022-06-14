@@ -1,6 +1,8 @@
-const Sidebar = () => {
+const Sidebar = ({ position, children }) => {
     return (
-        <aside className="sidebar">Sidebar</aside>
+        <div className={position}>
+            {children}
+        </div>
     )
 }
 

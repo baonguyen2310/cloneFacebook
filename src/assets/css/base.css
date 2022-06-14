@@ -1,6 +1,8 @@
 :root {
     --black-color: #000;
     --white-color: #fff;
+    --primary-color: #0062E0;
+    --primary-color-2: rgb(27, 116, 228);
     --gray-color: #767676;
     --gray-color-2: #efefef;
     --border-color-1: rgb(219, 219, 219);

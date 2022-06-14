@@ -1,7 +1,22 @@
-const Comment = () => {
+const Comment = ({ comment }) => {
     return (
-        <div>Comment</div>
-    )
-}
+        <div className="post__comment-read">
+            <div className="post__comment-user-img">
+                <img
+                    src=""
+                    alt="user image"
+                    className="post__comment-user-img" />
+            </div>
+            <div className="post__comment-content">
+                <div className="post__comment-user-name">
+                    {comment.userName}
+                </div>
+                <div className="post__comment-text">
+                    {comment.content}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default Comment;

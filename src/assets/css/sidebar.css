@@ -1,4 +1,16 @@
 /*SIDEBAR*/
+.wrap-sidebar__right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 300px;
+}
+
+.wrap-sidebar__left {
+    flex: 1;
+}
+
 .sidebar {
     /*Nếu dùng flex-grow (trong col cũng có), thì đặt min-width max-width sẽ giới hạn độ trải rộng*/
     /*Đặt flex-shrink 9999 hoặc flex-grow 9999 là hack*/

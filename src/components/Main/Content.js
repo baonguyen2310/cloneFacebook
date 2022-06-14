@@ -2,6 +2,7 @@ import { useCallback, useState, useRef, useEffect } from 'react';
 import { useGetPosts } from '../../api';
 import { AvatarInput, ButtonIconText } from '../../features';
 import Post from './Post';
+import styles from '../../assets/css/content.css';
 
 const Content = () => {
     const [pageNumber, setPageNumber] = useState(0);

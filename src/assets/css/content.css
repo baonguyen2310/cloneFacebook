@@ -1,12 +1,27 @@
 /*CONTENT*/
 .content {
+    flex: 1;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.write__post {
+    width: 100%;
+    max-width: 680px;
+    background-color: var(--white-color);
+    margin-top: 16px;
+    border-radius: 8px;
+}
+
+.posts {
+    width: 100%;
+}
+
 .post {
+    width: 100%;
     max-width: 680px;
     background-color: var(--white-color);
     margin-top: 16px;
@@ -69,16 +84,23 @@
 }
 
 /*POST CONTENT*/
-.post__content {
-
-}
+.post__content {}
 
 .post__content-text {
     padding: 4px 16px 16px 16px;
 }
 
 .post__content-media {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+}
 
+.post__content-media-iframe {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /*POST ACTION*/
@@ -141,6 +163,8 @@
 /*POST COMMENT*/
 .post__comment {
     padding: 16px 0;
+    height: 300px;
+    overflow-y: auto;
 }
 
 .post__comment-write {
@@ -164,7 +188,7 @@
     padding: 8px 12px;
     border: none;
     background-color: rgb(240, 242, 245);
-    width: 100%;
+    width: 90%;
 }
 
 .post__comment-input-form:focus {

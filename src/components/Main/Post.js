@@ -11,12 +11,45 @@ import {
 
 import Comment from './Comment';
 
+const getParentElement = (childElement, classNameParent) => {
+    while (childElement.parentElement.className !== classNameParent) {
+        childElement = childElement.parentElement;
+    }
+
+    return childElement.parentElement;
+}
+
+
 const Post = (props, ref) => {
     const post = props.post;
 
-    const handleEnter = () => {
+    const handleEnter = (event) => {
+        if (event.key === "Enter") {
 
-    };
+            //Interupt
+            console.log(event.target);
+            const parentInterupt = getParentElement(event.target, "post__comment"); //chú ý truyền className để so sánh không có dấu chấm
+            const interuptElement = parentInterupt.querySelector(".post__comment-interupt")
+            interuptElement.style.display = "flex";
+            interuptElement.querySelector(".post__comment-text").innerHTML = event.target.value;
+
+
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                console.log(xhr.response);
+            }
+            const body = JSON.stringify({
+                id: post._id,
+                userName: "Cận Khá Nặng",
+                comment: event.target.value
+            });
+            event.target.value = "";
+
+            xhr.open("POST", "http://localhost:5000/comment", true);
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhr.send(body);
+        }
+    }
 
     return (
         <div className="post" ref={ref}>
@@ -51,7 +84,7 @@ const Post = (props, ref) => {
                     {post.content}
                 </div>
                 <div className="post__content-media">
-                    <iframe width="680" height="400" src={post.media}></iframe>
+                    <iframe className="post__content-media-iframe" src={post.media}></iframe>
                 </div>
             </div>
             <div className="post__action">

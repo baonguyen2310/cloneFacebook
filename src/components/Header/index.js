@@ -1,6 +1,9 @@
+import HeaderFacebook from "./headerFacebook";
+import styles from './index.css';
+
 const Header = () => {
     return (
-        <header className="header">Header</header>
+        <HeaderFacebook />
     );
 }
 

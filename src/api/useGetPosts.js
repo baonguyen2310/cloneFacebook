@@ -17,9 +17,12 @@ const useGetPosts = (pageNumber) => {
 
         axios({
             method: "GET",
-            url: "http://localhost:5000/posts",
+            url: "https://localhost:443/posts",
             params: {
                 page: pageNumber
+            },
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             cancelToken: new axios.CancelToken(c => cancel = c)
         })
