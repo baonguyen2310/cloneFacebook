@@ -3,7 +3,7 @@ const Comment = ({ comment }) => {
         <div className="post__comment-read">
             <div className="post__comment-user-img">
                 <img
-                    src=""
+                    src={require("../../assets/images/users/user1.jpg")}
                     alt="user image"
                     className="post__comment-user-img" />
             </div>

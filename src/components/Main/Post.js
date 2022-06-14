@@ -57,7 +57,7 @@ const Post = (props, ref) => {
                 <div className="post__header-info">
                     <div className="post__header-user-img">
                         <img
-                            src=""
+                            src={require("../../assets/images/users/user1.jpg")}
                             alt="user image"
                             className="post__header-user-img" />
                     </div>
@@ -118,7 +118,7 @@ const Post = (props, ref) => {
                     <div className="post__comment-write">
                         <div className="post__comment-user-img">
                             <img
-                                src=""
+                                src={require("../../assets/images/users/user1.jpg")}
                                 alt="user image"
                                 className="post__comment-user-img" />
                         </div>
@@ -133,7 +133,7 @@ const Post = (props, ref) => {
                     <div className="post__comment-read post__comment-interupt">
                         <div className="post__comment-user-img">
                             <img
-                                src=""
+                                src={require("../../assets/images/users/user1.jpg")}
                                 alt="user image"
                                 className="post__comment-user-img" />
                         </div>
