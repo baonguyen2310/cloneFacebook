@@ -8,6 +8,7 @@ import {
     faMessage,
     faShare
 } from '@fortawesome/free-solid-svg-icons';
+import HOST from '../../api/CONSTANT';
 
 import Comment from './Comment';
 
@@ -45,7 +46,7 @@ const Post = (props, ref) => {
             });
             event.target.value = "";
 
-            xhr.open("POST", "https://18.142.227.93/comment", true);
+            xhr.open("POST", HOST + "/comment", true);
             xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             xhr.send(body);
         }

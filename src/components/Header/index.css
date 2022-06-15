@@ -15,13 +15,71 @@
 .modal-friends__item {
     margin: 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     font-size: 1.5rem;
     border-bottom: 1px solid var(--gray-color-2);
 }
 
-.modal-friends__btn {
+.modal-friends__btn-add,
+.modal-friends__btn-confirm {
     background-color: var(--primary-color-2);
-    color: var(--white-color);
-    
+    color: var(--white-color); 
+    border:rgba(27,116,228,1.0);
+    height: 2rem;
+    padding: 0 16px;
+}
+
+.modal-friends__btn-delete {
+    background-color: #FCEBE2;
+    color:  #db3030;
+    border: 1px solid  #F9D3C5;
+    height: 2rem;
+    padding: 0 16px;
+}
+
+.friends-option__list{
+    display: flex;
+}
+
+.friend-option__btn {
+    font-size: 0.8rem;
+    color: var(--black-color);
+    background-color: rgb(228 230 235);
+    border: none;
+    border-radius: 4px;
+    margin: 8px;
+    padding: 4px;
+    font-weight: 600;
+}
+
+.friend-option__label {
+    font-size: 1rem;
+    color: var(--black-color);
+    margin: 8px;
+    font-weight: 600;
+}
+
+.suggestions {
+    display: block;
+}
+
+.friend-requests {
+    display: none;
+}
+
+.your-friends {
+    display: none;
+}
+
+.user-avatar {
+    width: 90px;
+    border-radius: 50%;
+}
+
+.modal-friends__wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 16px 32px;
 }

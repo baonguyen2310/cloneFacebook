@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import HOST from './CONSTANT';
 
 //Dùng hook của React thì chỉ được là react component (bắt đầu in hoa và có return element hoặc component) hoặc react custom hook (bắt đầu bằng use)
 //Tạo 1 custom hook nhận vào pageNumber, gọi api khi pageNumber thay đổi, trả về res và trạng thái
@@ -17,7 +18,7 @@ const useGetPosts = (pageNumber) => {
 
         axios({
             method: "GET",
-            url: "https://18.142.227.93/posts",
+            url: HOST + "/posts",
             params: {
                 page: pageNumber
             },

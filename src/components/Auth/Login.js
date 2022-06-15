@@ -1,11 +1,12 @@
 import axios from "axios";
+import HOST from "../../api/CONSTANT";
 
 const Login = () => {
     const submitHandle = () => {
         const userName = document.querySelector(".login-form__username").value;
         const password = document.querySelector(".login-form__password").value;
         axios.post(
-            "https://18.142.227.93/login",
+            HOST + "/login",
             {
                 userName: userName,
                 password: password

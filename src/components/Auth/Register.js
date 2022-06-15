@@ -1,18 +1,22 @@
 import axios from "axios";
+import HOST from "../../api/CONSTANT";
 
 const Register = () => {
     const submitHandle = () => {
         const userName = document.querySelector(".register-form__username").value;
         const password = document.querySelector(".register-form__password").value;
         axios.post(
-            "https://18.142.227.93/register",
+            HOST + "/register",
             {
                 userName: userName,
                 password: password
             }
         ).then((res) => {
             console.log(res.data);
-            
+            alert("Đăng ký thành công, \nVui lòng đăng nhập lại");
+            document.querySelector(".register-form").style.display = "none";
+            document.querySelector(".blur-screen").style.display = "flex";
+            document.querySelector(".login-form").style.display = "flex";
         }).catch((err) => {
             console.log(err);
         });
