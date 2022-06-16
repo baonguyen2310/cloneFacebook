@@ -5,6 +5,7 @@ const BlurScreen = () => {
         document.querySelector(".register-form").style.display = "none";
         document.querySelector(".login-form").style.display = "none";
         document.querySelector(".modal-friends").style.display = "none";
+        document.querySelector(".modal-net-message").style.display = "none";
     }
 
     return <div className="blur-screen" onClick={handleClick}></div>

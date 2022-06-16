@@ -1,10 +1,11 @@
 import HeaderFacebook from "./headerFacebook";
 import styles from './index.css';
+import React from "react";
 
-const Header = () => {
+const Header = (props, ref) => {
     return (
-        <HeaderFacebook />
+        <HeaderFacebook ref={ref} />
     );
 }
 
-export default Header;
+export default React.forwardRef(Header);

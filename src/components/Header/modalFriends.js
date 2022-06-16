@@ -86,6 +86,25 @@ const ModalFriends = () => {
         });
     }
 
+
+    const handleMessage = (e) => {
+        setLoading(true);
+        axios({
+            method: "POST",
+            url: HOST + "/message/createnetmessage",
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+                'Content-Type': 'Application/json'
+            },
+            data: {
+                targetId: e.target.parentElement.parentElement.querySelector(".modal-friends__name").innerText,
+            }
+        }).then((res) => {
+            setLoading(false);
+            window.location.reload(); //cách tạm thời
+        });
+    }
+
     const handleSuggestions = (e) => {
         setOptionFriend("People You May Know");
         document.querySelector(".suggestions").style.display = "block";
@@ -148,7 +167,10 @@ const ModalFriends = () => {
                             <img src={require("../../assets/images/users/user3.png")} alt="user avatar" className="user-avatar"/>
                             <div className="modal-friends__wrap">
                                 <div className="modal-friends__name">{user}</div>
-                                <button className="modal-friends__btn-delete">Delete</button>
+                                <div className="modal-friends__wrap-btn">
+                                    <button className="modal-friends__btn-message" onClick={handleMessage}>Message</button>
+                                    <button className="modal-friends__btn-delete">Delete</button>
+                                </div>
                             </div>
                         </li>
                     )

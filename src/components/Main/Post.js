@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,6 +10,7 @@ import {
     faShare
 } from '@fortawesome/free-solid-svg-icons';
 import HOST from '../../api/CONSTANT';
+import axios from 'axios';
 
 import Comment from './Comment';
 
@@ -22,6 +24,7 @@ const getParentElement = (childElement, classNameParent) => {
 
 
 const Post = (props, ref) => {
+    const [userName, setUserName] = useState("Cận khá nặng");
     const post = props.post;
 
     const handleEnter = (event) => {
@@ -34,21 +37,22 @@ const Post = (props, ref) => {
             interuptElement.style.display = "flex";
             interuptElement.querySelector(".post__comment-text").innerHTML = event.target.value;
 
-
-            const xhr = new XMLHttpRequest();
-            xhr.onload = () => {
-                console.log(xhr.response);
-            }
-            const body = JSON.stringify({
-                id: post._id,
-                userName: "Cận Khá Nặng",
-                comment: event.target.value
+            axios({
+                method: "POST",
+                url: HOST + "/comment",
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+                    'Content-Type': 'Application/json'
+                },
+                data: {
+                    id: post._id,
+                    comment: event.target.value
+                }
+            }).then((res) => {
+                event.target.value = "";
+                setUserName(res.data);
             });
-            event.target.value = "";
 
-            xhr.open("POST", HOST + "/comment", true);
-            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xhr.send(body);
         }
     }
 
@@ -140,7 +144,7 @@ const Post = (props, ref) => {
                         </div>
                         <div className="post__comment-content">
                             <div className="post__comment-user-name">
-                                Cận Khá Nặng
+                                {userName}
                             </div>
                             <div className="post__comment-text">
                             </div>

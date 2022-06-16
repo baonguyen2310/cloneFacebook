@@ -1,5 +1,5 @@
 .modal-friends {
-    width: 300px;
+    width: 100vw;
     height: 80vh;
     background-color: var(--white-color);
     z-index: 1001;
@@ -29,10 +29,22 @@
     padding: 0 16px;
 }
 
+.modal-friends__wrap-btn {
+    display: flex;
+}
+
 .modal-friends__btn-delete {
     background-color: #FCEBE2;
     color:  #db3030;
     border: 1px solid  #F9D3C5;
+    height: 2rem;
+    padding: 0 16px;
+}
+
+.modal-friends__btn-message {
+    background-color: var(--primary-color-2);
+    color: var(--white-color); 
+    border:rgba(27,116,228,1.0);
     height: 2rem;
     padding: 0 16px;
 }

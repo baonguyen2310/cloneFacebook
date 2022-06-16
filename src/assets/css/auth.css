@@ -11,6 +11,7 @@
 }
 
 .auth-form * {
+    padding: 8px;
     font-size: inherit;
     width: 100%;
 }
@@ -52,11 +53,9 @@
 
 .login-form__username,
 .login-form__password,
-.login-form__btn,
 .register-form__username,
 .register-form__password,
-.register-form__password-confirm,
-.register-form__btn {
+.register-form__password-confirm {
     height: 2.5rem;
 }
 
@@ -64,4 +63,8 @@
 .register-form__btn {
     background-color: var(--primary-color-2);
     color: var(--white-color);
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 } 

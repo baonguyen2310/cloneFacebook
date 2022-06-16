@@ -5,11 +5,28 @@ import Auth from "./components/Auth";
 import { Register, Login } from './components/Auth';
 import { BlurScreen } from "./features";
 import styles from './assets/css/base.css';
+import { io } from 'socket.io-client';
+import HOST from "./api/CONSTANT";
+import { useEffect, useRef } from 'react';
 
 function App() {
+  const socketRef = useRef();
+
+  useEffect(() => {
+    socketRef.current = io(HOST);
+
+    socketRef.current.emit("send", "hehe");
+
+    socketRef.current.on("sendS", (data) => {
+      alert("SocketIo đã sẵn sàng" + data)
+      console.log(data);
+    })
+
+  }, []);
+
   return (
     <div className="App">
-      <Header />
+      <Header ref={socketRef}/>
       <Main />
       <Footer />
       <Auth />
