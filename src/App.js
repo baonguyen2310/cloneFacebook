@@ -23,12 +23,30 @@ function App() {
       console.log(data);
     });
 
-    socketRef.current.on("newMessage", () => {
-      console.log("bắt được newMessage");
-      setNewMessage(true);
-  })
+  //   socketRef.current.on("newMessage", () => {
+  //     if (newMessage === true) {
+  //       setNewMessage(false);
+  //     } else {
+  //       setNewMessage(true);
+  //     }
+  //     console.log(newMessage);
+  //     console.log("bắt được newMessage");
+  // })
 
   }, []);
+
+  useEffect(() => {
+    socketRef.current.on("newMessage", () => {
+      if (newMessage === true) {
+        setNewMessage(false);
+      } else {
+        setNewMessage(true);
+      }
+      console.log(newMessage);
+      console.log("bắt được newMessage");
+  })
+  }, [newMessage]); //Bug: phải phụ thuộc newMessage mới thay đổi newMessage
+  //đây có thể làm vòng lặp vô hạn => why?????????
 
   return (
     <div className="App">
