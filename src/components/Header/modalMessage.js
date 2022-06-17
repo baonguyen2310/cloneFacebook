@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 import HOST from "../../api/CONSTANT";
 import styles from "./modalMessage.css";
@@ -11,9 +12,9 @@ const getParentElement = (childElement, classNameParent) => {
     return childElement.parentElement;
 }
 
-const ModalNetMessage = () => {
+const ModalNetMessage = (props, ref) => {
 
-    const handleRefresh = (e) => {
+    const handleRefresh = () => {
         axios({
             method: "GET",
             url: HOST + "/message/getnetmessage",
@@ -80,6 +81,7 @@ const ModalNetMessage = () => {
                 message: e.target.parentElement.querySelector(".modal-message__input").value
             }
         }).then((res) => {
+            ref.current.emit('send', targetId);
             setLoading(false);
         });
     }
@@ -93,12 +95,16 @@ const ModalNetMessage = () => {
             }
         }).then((res) => {
             console.log(res.data);
+            //ké setUserName cho server biết tương ứng với socketId nào
+            console.log("ref", ref.current);
+            ref.current.emit("setUserName", res.data[0].sourceId);
+
             setNets(res.data);
         }).catch((err) => {
             return err;
         });
 
-    }, [loading])
+    }, [loading, props.newMessage])
 
     //mỗi lần gọi lại axios -> setNets làm cho trang văng về vị trí đầu, chạy lại css
     //mỗi lần setNets -> mở lại trang đang nhắn tin và focus vào phần input 
@@ -138,4 +144,4 @@ const ModalNetMessage = () => {
     )
 }
 
-export default ModalNetMessage;
+export default React.forwardRef(ModalNetMessage);

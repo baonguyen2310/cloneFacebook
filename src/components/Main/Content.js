@@ -1,10 +1,12 @@
-import { useCallback, useState, useRef, useEffect, useDebugValue } from 'react';
+import { useCallback, useState, useRef, useEffect } from 'react';
 import { useGetPosts } from '../../api';
 import { ButtonIconText } from '../../features';
 import Post from './Post';
 import styles from '../../assets/css/content.css';
 import HOST from '../../api/CONSTANT';
 import axios from 'axios';
+import { faImages, faFaceKiss } from '@fortawesome/free-regular-svg-icons';
+import { faVideo } from '@fortawesome/free-solid-svg-icons';
 
 const Content = () => {
     const [pageNumber, setPageNumber] = useState(0);
@@ -56,9 +58,9 @@ const Content = () => {
                     <button className="write__post-btn" onClick={handlePost}>Post</button>
                 </div>
                 <div className="write__post-media">
-                    <div className="write__post-livestream">
-                        <ButtonIconText />
-                    </div>
+                    <ButtonIconText icon={ faVideo } text="Live Stream"/>
+                    <ButtonIconText icon={ faImages } text="Images"/>
+                    <ButtonIconText icon={ faFaceKiss} text="Emotion"/>
                 </div>
             </div>
             <div className="posts">

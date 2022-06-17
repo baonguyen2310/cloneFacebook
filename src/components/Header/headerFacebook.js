@@ -15,7 +15,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import ModalFriends from './modalFriends';
-import ModalMessage from './modalMessage';
+import ModalNetMessage from './modalMessage';
 import { handleNotification } from './handleNotification';
 import React from 'react';
 
@@ -109,7 +109,9 @@ const HeaderFacebook = (props, ref) => {
                 <ul className="header__menu-list">
                     <HeaderMenuItem img={require("../../assets/images/users/user1.jpg")} />
                     <HeaderMenuItem icon={faUserGroup} onClick={handleFriends}>{ModalFriends()}</HeaderMenuItem>
-                    <HeaderMenuItem icon={faCommentDots} onClick={handleMessage}>{ModalMessage()}</HeaderMenuItem>
+                    <HeaderMenuItem icon={faCommentDots} onClick={handleMessage}>
+                        
+                    </HeaderMenuItem>
                     <HeaderMenuItem icon={faBell} onClick={(e) => handleNotification(e, ref)}></HeaderMenuItem>
                     <HeaderMenuItem icon={faCaretDown} onClick={handleForm}/>
                 </ul>

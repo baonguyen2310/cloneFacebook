@@ -1,7 +1,8 @@
 import axios from "axios";
+import React from "react";
 import HOST from "../../api/CONSTANT";
 
-const Login = () => {
+const Login = (props) => {
     const submitHandle = () => {
         const userName = document.querySelector(".login-form__username").value;
         const password = document.querySelector(".login-form__password").value;

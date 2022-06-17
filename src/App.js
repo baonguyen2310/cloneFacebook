@@ -7,32 +7,39 @@ import { BlurScreen } from "./features";
 import styles from './assets/css/base.css';
 import { io } from 'socket.io-client';
 import HOST from "./api/CONSTANT";
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import ModalNetMessage from './components/Header/modalMessage';
 
 function App() {
   const socketRef = useRef();
 
+  const [newMessage, setNewMessage] = useState(false);
+
   useEffect(() => {
     socketRef.current = io(HOST);
 
-    socketRef.current.emit("send", "hehe");
-
     socketRef.current.on("sendS", (data) => {
-      alert("SocketIo đã sẵn sàng" + data)
+      //alert("SocketIo đã sẵn sàng" + data)
       console.log(data);
-    })
+    });
+
+    socketRef.current.on("newMessage", () => {
+      console.log("bắt được newMessage");
+      setNewMessage(true);
+  })
 
   }, []);
 
   return (
     <div className="App">
-      <Header ref={socketRef}/>
+      <Header ref={socketRef} />
       <Main />
       <Footer />
       <Auth />
       <Register />
       <Login />
       <BlurScreen />
+      <ModalNetMessage ref={socketRef} newMessage={newMessage} />
     </div>
   );
 }

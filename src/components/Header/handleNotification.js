@@ -1,5 +1,4 @@
 const handleNotification = (e, ref) => {
-    ref.current.emit("send", "wow");
     let swRegistration = null;
     if ("serviceWorker" in navigator && "PushManager" in window) {
         console.log("Service Worker and Push is supported");
@@ -81,6 +80,7 @@ async function subscribeToServer(swRegistration) {
         method: "POST",
         body: JSON.stringify(subscription),
         headers: {
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
             "content-type": "application/json"
         }
     });

@@ -3,7 +3,14 @@ self.addEventListener("push", function(event) {
     self.registration.showNotification(
         data.title,
         {
-            body: "hehe from server"
+            body: data.body,
+            icon: "./notify.png"
         }
     )
 })
+
+self.addEventListener('notificationclick', function(event) {
+    let url = 'https://localhost:3000';
+    event.notification.close(); // Android needs explicit close.
+    clients.openWindow(url);
+});
