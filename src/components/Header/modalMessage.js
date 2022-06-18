@@ -30,12 +30,12 @@ const ModalNetMessage = (props, ref) => {
     }
 
     const ModalMessage = ({ targetId, messages }) => {
-        console.log("messages", messages);
+
         return (
             <div className="modal-message">
-                <button className="modal-message__text" onClick={handleRefresh}>
+                {/* <button className="modal-message__text" onClick={handleRefresh}>
                     Tính năng đăng phát triển: Hiện bạn phải nhấn vào đây để cập nhật tin nhắn mới
-                </button>
+                </button> */}
                 <ul className="modal-message__list">
                     {messages.map((message, index) => {
                         if (message.sourceId === targetId){ //nếu tin nhắn này là của người targetId nhắn
@@ -116,6 +116,13 @@ const ModalNetMessage = (props, ref) => {
             } 
         })
     }, [nets]);
+    //và cuộn xuống tin nhắn cuối
+    useEffect(() => {
+        document.querySelectorAll(".modal-message__list").forEach((element, index) => {
+            element.scrollTop = element.scrollHeight;
+            console.log(element.scrollTop);
+        })
+    }, [nets]);
 
     const handleTarget = (e, targetId) => {
         document.querySelectorAll(".modal-message").forEach((element, index) => {
@@ -130,6 +137,7 @@ const ModalNetMessage = (props, ref) => {
     return (
         <ul className="modal-net-message">
             {nets.map((net, index) => {
+
                 return (
                     <li className="modal-net-message__item" key={index}>
                         <div className="modal-net-message__item-wrap" onClick={(e) => handleTarget(e, net.targetId)}>

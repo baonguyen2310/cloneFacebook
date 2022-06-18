@@ -1,3 +1,5 @@
+import HOST from "../../api/CONSTANT";
+
 const handleNotification = (e, ref) => {
     let swRegistration = null;
     if ("serviceWorker" in navigator && "PushManager" in window) {
@@ -76,7 +78,7 @@ async function subscribeToServer(swRegistration) {
         applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
     });
 
-    await fetch("https://localhost:443/subscribe", {
+    await fetch(HOST+ "/subscribe", {
         method: "POST",
         body: JSON.stringify(subscription),
         headers: {

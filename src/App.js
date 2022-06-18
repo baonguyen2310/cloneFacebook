@@ -35,18 +35,30 @@ function App() {
 
   }, []);
 
+  // useEffect(() => {
+  //   socketRef.current.on("newMessage", () => {
+  //     if (newMessage === true) {
+  //       setNewMessage(false);
+  //     } else {
+  //       setNewMessage(true);
+  //     }
+  //     console.log(newMessage);
+  //     console.log("bắt được newMessage");
+  // })
+  // }, [newMessage]);
+
   useEffect(() => {
     socketRef.current.on("newMessage", () => {
-      if (newMessage === true) {
-        setNewMessage(false);
-      } else {
-        setNewMessage(true);
-      }
+      setNewMessage(prev => {
+        if (prev == true) {
+          return false;
+        }
+        return true;
+      })
       console.log(newMessage);
       console.log("bắt được newMessage");
   })
-  }, [newMessage]); //Bug: phải phụ thuộc newMessage mới thay đổi newMessage
-  //đây có thể làm vòng lặp vô hạn => why?????????
+  }, []);
 
   return (
     <div className="App">
